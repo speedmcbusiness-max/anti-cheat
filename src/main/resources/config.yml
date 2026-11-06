@@ -1,0 +1,30 @@
+general:
+  min-tps: 18.0          # checks pause while the server is lagging below this
+alerts:
+  format: "&8[&cSentinel&8] &f%player% &7failed &c%check% &8(&7%info%&8) &7VL &c%vl%"
+punishment:
+  enabled: false
+  default-vl: 20
+  commands:
+    - "kick %player% Unfair advantage detected (%check%)"
+checks:
+  reach:        { enabled: true, leniency: 0.3, ping-factor: 0.1, buffer: 2, cancel-hits: true, punish-vl: 20 }
+  hitbox:       { enabled: true, expand: 0.15, buffer: 3, cancel-hits: true }
+  aimassist:    { enabled: true, min-step: 0.0045, buffer: 4 }   # rotation GCD analysis (experimental)
+  clickaimassist: { enabled: true, max-mean: 2.0, max-stddev: 0.6, samples: 20 }
+  autocrystal:  { enabled: true, max-ticks: 1 }
+  autototem:    { enabled: true, max-ticks: 1 }
+  autoanchor:   { enabled: true, max-ticks: 1 }
+  invmove:      { enabled: true, buffer: 3 }
+  flight:       { enabled: true, max-excess: 0.07, buffer: 3, hover-ticks: 20, hover-setback: true }
+  antifalldamage: { enabled: true, spoof-buffer: 3, min-fall: 5.0 }
+  velocity:     { enabled: true, buffer: 3 }
+  jumpreset:    { enabled: true }
+  nojumpdelay:  { enabled: true, min-interval: 9 }
+  noslowdown:   { enabled: true, max-using: 0.10, max-sneaking: 0.085, buffer: 4 }
+  shieldbreaker: { enabled: true, max-ticks: 1 }
+  autostunslam: { enabled: true, max-ticks: 2 }
+  xray:         { enabled: true, min-found: 4, ratio: 0.04 }
+  # ESP / ItemESP are client-side rendering hacks and cannot be "detected".
+  # This module stops sending hidden players/items to the client instead.
+  esp:          { enabled: true, players: true, items: true, range: 80, always-visible-within: 7, interval: 4, max-entities-per-run: 48 }

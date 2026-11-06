@@ -1,0 +1,17 @@
+name: Sentinel
+version: ${version}
+main: dev.sentinel.Sentinel
+api-version: '26.3'
+description: Server-side anti-cheat for Paper 26.3
+commands:
+  sentinel:
+    description: Sentinel admin command
+    usage: /sentinel <reload|alerts|vl|reset>
+    aliases: [ac]
+permissions:
+  sentinel.admin:
+    default: op
+  sentinel.alerts:
+    default: op
+  sentinel.bypass:
+    default: false
